@@ -1,6 +1,6 @@
 class Validator {
   String? inputValidator(String userInput) {
-    if (userInput == '') {
+    if (userInput.isEmpty) {
       return "Please fill this field";
     }
     return null;
@@ -20,10 +20,10 @@ class Validator {
   String? confirmPasswordValidator(String password, String confirmPassword) {
     password.toLowerCase();
     confirmPassword.toLowerCase();
-    if (password == '') {
+    if (password.isEmpty) {
       return "Please enter a valid password above";
     }
-    if (confirmPassword == '') {
+    if (confirmPassword.isEmpty) {
       return "Please confirm your password";
     }
     if (!(password == confirmPassword)) {
@@ -34,7 +34,7 @@ class Validator {
 
   String? passwordValidator(String password) {
     password.toLowerCase();
-    if (password == '') {
+    if (password.isEmpty) {
       return "Please enter a password";
     } else if (password.length <= 7) {
       return "Password cannot be less than 8 characters";
