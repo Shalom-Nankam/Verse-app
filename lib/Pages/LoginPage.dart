@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verse_app/Pages/HomePage.dart';
 import 'package:verse_app/Pages/SignUpPage.dart';
+import 'package:verse_app/utils/GlobalVariables.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -10,14 +11,14 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
-  late bool? showPassword;
+  // late bool? showPassword;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    setState(() {
-      showPassword = false;
-    });
+    // setState(() {
+    //   showPassword = false;
+    // });
   }
 
   @override
@@ -100,7 +101,7 @@ class _loginState extends State<login> {
                       hintStyle:
                           const TextStyle(color: Colors.grey, fontSize: 14),
                     ),
-                    obscureText: showPassword == true ? false : true,
+                    obscureText: showPasswordOnLoginPage == true ? false : true,
                   ),
                 ]),
               ),
@@ -112,10 +113,10 @@ class _loginState extends State<login> {
                   Row(
                     children: [
                       Checkbox(
-                        value: showPassword,
+                        value: showPasswordOnLoginPage,
                         onChanged: ((value) {
                           setState(() {
-                            showPassword = value;
+                            showPasswordOnLoginPage = value!;
                           });
                         }),
                         fillColor: MaterialStateProperty.all(Colors.grey),
@@ -124,13 +125,13 @@ class _loginState extends State<login> {
                       ),
                       TextButton(
                         onPressed: () {
-                          setState(() {
-                            if (showPassword == false) {
-                              showPassword = true;
-                            } else {
-                              showPassword = false;
-                            }
-                          });
+                          // setState(() {
+                          //   if (showPassword == false) {
+                          //     showPassword = true;
+                          //   } else {
+                          //     showPassword = false;
+                          //   }
+                          // });
                         },
                         child: const Text('Show Password',
                             style: TextStyle(

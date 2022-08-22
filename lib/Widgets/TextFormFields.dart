@@ -84,7 +84,7 @@ class Textformfield2 extends StatelessWidget {
         SignupState().setInput(newValue!, controller);
       },
       cursorColor: Colors.blue.shade900,
-      // obscureText: SignupState().showPassword,
+      obscureText: showPasswordOnSignUpPage == true ? false : true,
       controller: controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verse_app/Pages/LoginPage.dart';
 import 'package:verse_app/Widgets/TextFormFields.dart';
+import 'package:verse_app/utils/GlobalVariables.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -27,9 +28,9 @@ class SignupState extends State<Signup> {
     super.initState();
     _dob = TextEditingController(text: "12/12/2022");
     _location = TextEditingController(text: 'Abuja, Nigeria');
-    setState(() {
-      showPassword = false;
-    });
+    // setState(() {
+    //   showPassword = false;
+    // });
   }
 
   void setInput(String value, TextEditingController controller) {
@@ -203,10 +204,10 @@ class SignupState extends State<Signup> {
                             Row(
                               children: [
                                 Checkbox(
-                                  value: showPassword,
+                                  value: showPasswordOnSignUpPage,
                                   onChanged: ((value) {
                                     setState(() {
-                                      showPassword = value!;
+                                      showPasswordOnSignUpPage = value!;
                                     });
                                   }),
                                   fillColor:
@@ -232,6 +233,26 @@ class SignupState extends State<Signup> {
                           controller: confirmPassword,
                           inputType: TextInputType.text,
                         ),
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: showPasswordOnSignUpPage,
+                              onChanged: ((value) {
+                                setState(() {
+                                  showPasswordOnSignUpPage = value!;
+                                });
+                              }),
+                              fillColor: MaterialStateProperty.all(Colors.grey),
+                              checkColor: Colors.blue.shade900,
+                              side: const BorderSide(color: Colors.black),
+                            ),
+                            Text('Show Password',
+                                style: TextStyle(
+                                  color: Colors.blue.shade700,
+                                  fontSize: 14,
+                                )),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -245,13 +266,12 @@ class SignupState extends State<Signup> {
                   final isValid = _formKey.currentState!.validate();
                   if (isValid) {
                     _formKey.currentState!.save();
-                     Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const login(),
-                      ));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const login(),
+                        ));
                   }
-                 
                 }),
                 style: ButtonStyle(
                   backgroundColor:
