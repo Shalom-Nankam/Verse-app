@@ -20,6 +20,9 @@ class Validator {
   String? confirmPasswordValidator(String password, String confirmPassword) {
     password.toLowerCase();
     confirmPassword.toLowerCase();
+    if (password == '') {
+      return "Please enter a valid password above";
+    }
     if (confirmPassword == '') {
       return "Please confirm your password";
     }
