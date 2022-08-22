@@ -1,13 +1,13 @@
 class Validator {
   
-  String inputValidator(String userInput) {
+  String? inputValidator(String userInput) {
     if (userInput == '') {
       return "Please fill this field";
     }
-    return '';
+    return null;
   }
 
-  String emailValidator(String userInput) {
+  String? emailValidator(String userInput) {
     List<String> inputList = userInput.split('');
     if (inputList.isEmpty) {
       return "Please fill this field";
@@ -15,10 +15,10 @@ class Validator {
     if (!inputList.contains('@')) {
       return "Please enter a valid e-mail";
     }
-    return '';
+    return null;
   }
 
-  String confirmPasswordValidator(String password, String confirmPassword) {
+  String? confirmPasswordValidator(String password, String confirmPassword) {
     password.toLowerCase();
     confirmPassword.toLowerCase();
     if (confirmPassword == '') {
@@ -27,16 +27,16 @@ class Validator {
     if (!(password == confirmPassword)) {
       return "Password is not correct. Check again!";
     }
-    return '';
+    return null;
   }
 
-  String passwordValidator(String password) {
+  String? passwordValidator(String password) {
     password.toLowerCase();
     if (password == '') {
       return "Please enter a password";
     } else if (password.length <= 7) {
       return "Password cannot be less than 8 characters";
     }
-    return '';
+    return null;
   }
 }
