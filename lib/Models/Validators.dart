@@ -1,5 +1,4 @@
 class Validator {
-  
   String? inputValidator(String userInput) {
     if (userInput == '') {
       return "Please fill this field";
@@ -12,7 +11,7 @@ class Validator {
     if (inputList.isEmpty) {
       return "Please fill this field";
     }
-    if (!inputList.contains('@')) {
+    if (!(inputList.contains('@') && (inputList.contains('.')))) {
       return "Please enter a valid e-mail";
     }
     return null;
