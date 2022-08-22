@@ -233,26 +233,6 @@ class SignupState extends State<Signup> {
                           controller: confirmPassword,
                           inputType: TextInputType.text,
                         ),
-                        Row(
-                          children: [
-                            Checkbox(
-                              value: showPasswordOnSignUpPage,
-                              onChanged: ((value) {
-                                setState(() {
-                                  showPasswordOnSignUpPage = value!;
-                                });
-                              }),
-                              fillColor: MaterialStateProperty.all(Colors.grey),
-                              checkColor: Colors.blue.shade900,
-                              side: const BorderSide(color: Colors.black),
-                            ),
-                            Text('Show Password',
-                                style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontSize: 14,
-                                )),
-                          ],
-                        ),
                       ],
                     ),
                   ),
